@@ -40,4 +40,4 @@
 malloc-based:
 
 calloc
-strdup
+//strdup

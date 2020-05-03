@@ -6,11 +6,11 @@
 int     main(int argc, char **argv)
 {
 	(void)argc;
-//	(void)argv;
+	(void)argv;
 //	char lie[] = "aaaf";
 //	char iot[] = "aaad";
-    printf("strdup: %s\n", strdup(argv[1]));
-    printf("ft_strdup: %s\n", ft_strdup(argv[1]));
-
+//    printf("strdup: %s\n", strdup(argv[1]));
+//    printf("ft_strdup: %s\n", ft_strdup(argv[1]));
+	ft_calloc(2000000000, 2000000000);
     return (0);
 }

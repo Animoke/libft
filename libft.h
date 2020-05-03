@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 12:34:12 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/03 17:12:25 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/05/03 20:33:00 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 
 char	*ft_strdup(const char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif
