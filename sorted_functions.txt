@@ -8,7 +8,7 @@
 //memcmp
 
 
-str:
+//str:
 
 //strlen
 //strchr
@@ -16,7 +16,7 @@ str:
 //strncmp
 //strlcpy
 //strlcat
-strnstr
+//strnstr
 
 //is:	
 
@@ -30,7 +30,6 @@ strnstr
 
 //toupper
 //tolower
-
 
 //misc:
 
