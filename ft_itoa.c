@@ -1,44 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/06 18:51:27 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/14 17:15:32 by gpatingr         ###   ########.fr       */
+/*   Created: 2020/05/14 17:16:13 by gpatingr          #+#    #+#             */
+/*   Updated: 2020/05/14 17:29:47 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include "libft.h"
 
-static	int		set_checker(const char *set, const char c)
+char	*ft_itoa(int nb)
 {
-	size_t	i;
+	int		i;
+	int		nbcpy;
+	char	num[12];
 
-	i = 0;
-	while (set[i] != '\0')
+	nbcpy = nb;
+	i = 10;
+	num[11] = 0;
+	num[10] = '0';
+	if (nb == -2147483648)
+		num[i--] = '8';
+	if (nb == -2147483648)
+		nb /= 10;
+	if (nb < 0)
+		nb *= -1;
+	while (nb > 0)
 	{
-		if (set[i] == c)
-			return (1);
+		num[i] = nb % 10 + '0';
+		nb /= 10;
+		i--;
+	}
+	if (nbcpy < 0)
+		num[i] = '-';
+	else if (nbcpy != 0)
 		i++;
-	}
-	return (0);
+	return (ft_strdup(&num[i]));
 }
-
-char	**ft_split(char const *s, char c)
-{
-	char	**res;
-	if (!s)
-		return (NULL);
-	while (set_checker(s, c) == 1)
-	{
-		**res = *s;
-		s++;
-		res++;
-	}
-	if (set_checker(s, c) == 0)
-		return (NULL);
-	return (NULL);
-}*/

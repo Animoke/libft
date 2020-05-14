@@ -1,44 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/06 18:51:27 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/14 17:15:32 by gpatingr         ###   ########.fr       */
+/*   Created: 2020/05/14 17:31:22 by gpatingr          #+#    #+#             */
+/*   Updated: 2020/05/14 17:52:09 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include "libft.h"
 
-static	int		set_checker(const char *set, const char c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	size_t	i;
+	char	*ptr;
 
 	i = 0;
-	while (set[i] != '\0')
-	{
-		if (set[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**res;
 	if (!s)
 		return (NULL);
-	while (set_checker(s, c) == 1)
-	{
-		**res = *s;
-		s++;
-		res++;
-	}
-	if (set_checker(s, c) == 0)
+	if (!(ptr = malloc(sizeof(char) * ft_strlen(s) + 1)))
 		return (NULL);
-	return (NULL);
-}*/
+	while (*s)
+		ptr[i++] = *s++;
+	ptr[i] = 0;
+	i = 0;
+	while (ptr[i])
+	{
+		ptr[i] = (*f)(i, ptr[i]);
+		i++;
+	}
+	ptr[i] = 0;
+	return (ptr);
+}
