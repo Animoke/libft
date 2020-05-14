@@ -1,44 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/06 18:51:27 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/14 18:45:25 by gpatingr         ###   ########.fr       */
+/*   Created: 2020/05/14 18:25:22 by gpatingr          #+#    #+#             */
+/*   Updated: 2020/05/14 18:31:40 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include "libft.h"
+#include <unistd.h>
 
-static	int		set_checker(const char *set, const char c)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (set[i] != '\0')
-	{
-		if (set[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
+	write(fd, &c, 1);
 }
-
-char	**ft_split(char const *s, char c)
-{
-	char	**res;
-	if (!s)
-		return (NULL);
-	while (set_checker(s, c) == 1)
-	{
-		**res = *s;
-		s++;
-		res++;
-	}
-	if (set_checker(s, c) == 0)
-		return (NULL);
-	return (NULL);
-}*/

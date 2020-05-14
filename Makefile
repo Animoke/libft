@@ -6,7 +6,7 @@
 #    By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/14 17:38:52 by gpatingr          #+#    #+#              #
-#    Updated: 2020/05/14 17:51:43 by gpatingr         ###   ########.fr        #
+#    Updated: 2020/05/14 19:02:57 by gpatingr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,8 @@ SRC:= $(SRC) ft_strlcat.c ft_strlcpy.c ft_strlen.c
 SRC:= $(SRC) ft_strncmp.c ft_strnstr.c ft_strrchr.c
 SRC:= $(SRC) ft_strtrim.c ft_substr.c ft_tolower.c
 SRC:= $(SRC) ft_toupper.c ft_itoa.c ft_strmapi.c
+SRC:= $(SRC) ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c
+SRC:= $(SRC) ft_putstr_fd.c
 OBJ= $(SRC:.c=.o)
 HEAD=libft.h
 CC=gcc
@@ -41,3 +43,4 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+.PHONY: clean fclean re all

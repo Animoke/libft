@@ -1,44 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/06 18:51:27 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/14 18:45:25 by gpatingr         ###   ########.fr       */
+/*   Created: 2020/05/14 18:32:23 by gpatingr          #+#    #+#             */
+/*   Updated: 2020/05/14 18:45:05 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include "libft.h"
+#include <unistd.h>
 
-static	int		set_checker(const char *set, const char c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (set[i] != '\0')
+	if (n == -2147483648)
+		write(fd, "-2147483648", 11);
+	else if (n < 0)
 	{
-		if (set[i] == c)
-			return (1);
-		i++;
+		ft_putchar_fd(45, fd);
+		n = -n;
+		ft_putnbr_fd(n, fd);
 	}
-	return (0);
+	else if (n < 10)
+		ft_putchar_fd(n + 48, fd);
+	else
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + 48, fd);
+	}
 }
-
-char	**ft_split(char const *s, char c)
-{
-	char	**res;
-	if (!s)
-		return (NULL);
-	while (set_checker(s, c) == 1)
-	{
-		**res = *s;
-		s++;
-		res++;
-	}
-	if (set_checker(s, c) == 0)
-		return (NULL);
-	return (NULL);
-}*/
