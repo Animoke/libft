@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 22:16:11 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/04/29 00:32:55 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/05/14 19:22:18 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t			i;
 	const char		*s;
-	unsigned char	*d;
+	char	*d;
 
 	i = 0;
-	s = src;
-	d = dest;
+	s = (const char *)src;
+	d = (char *)dest;
+	if (!dest && !src)
+		return (dest);
 	while (i < n)
 	{
 		d[i] = s[i];
