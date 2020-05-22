@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 19:29:48 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/15 00:32:17 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/05/22 15:42:14 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		while (n--)
 			d[n] = s[n];
 	}
-	return (d);
+	return (dest);
 }
