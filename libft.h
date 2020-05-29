@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 12:34:12 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/29 14:44:31 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/05/29 22:05:37 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ typedef struct		s_list
 }					t_list;
 
 t_list				*ft_lstnew(void *content);
+void				ft_lstadd_front(t_list **alst, t_list *new);
+t_list				*ft_lstlast(t_list *lst)
+void				ft_lstadd_back(t_list **alst, t_list *new)
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlen(const char *str);
