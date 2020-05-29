@@ -6,7 +6,7 @@
 #    By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/14 17:38:52 by gpatingr          #+#    #+#              #
-#    Updated: 2020/05/29 22:38:30 by gpatingr         ###   ########.fr        #
+#    Updated: 2020/05/30 00:59:31 by gpatingr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC:= $(SRC) ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 SRC:= $(SRC) ft_putstr_fd.c ft_split.c
 SRC_BONUS= ft_lstnew.c ft_lstsize.c ft_lstlast.c
 SRC_BONUS:= $(SRC_BONUS) ft_lstadd_front.c ft_lstadd_back.c
+SRC_BONUS:= $(SRC_BONUS) ft_lstdelone.c
 OBJ= $(SRC:.c=.o)
 OBJ_BONUS= $(SRC_BONUS:.c=.o)
 HEAD=libft.h
