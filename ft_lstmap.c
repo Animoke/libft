@@ -6,15 +6,15 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 15:50:54 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/07/23 16:48:28 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/07/23 16:53:28 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_list	ft_local_lstclear(t_list **lst, void (*del)(void*))
+static t_list	*ft_local_lstclear(t_list **lst, void (*del)(void*))
 {
-	ft_lstclear(start, (*del));
+	ft_lstclear(lst, (*del));
 	return (NULL);
 }
 
