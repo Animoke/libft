@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/29 22:04:32 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/30 01:04:49 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/07/23 15:38:01 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
 	t_list *res;
+	t_list *temp;
 
-	res = ft_lstlast(*alst);
 	if (alst == NULL)
 	{
 		alst = &new;
 		return ;
 	}
-	if (*alst == NULL)
+	temp = *alst;
+	if (temp == NULL)
 	{
 		*alst = new;
 		return ;
 	}
+	res = ft_lstlast(*alst);
 	if (res)
 		res->next = new;
 }
