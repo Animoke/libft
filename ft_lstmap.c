@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 15:50:54 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/07/23 16:35:32 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/07/23 16:48:28 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_list	ft_local_lstclear(t_list **lst, void (*del)(void*))
 	return (NULL);
 }
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*item;
 	t_list	*pre;
