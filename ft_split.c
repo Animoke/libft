@@ -35,6 +35,7 @@ static void		*ft_free_strings(char **strs)
 	while (*strs)
 		free(*strs++);
 	free(strs);
+	return (NULL);
 }
 
 char			**ft_split(char const *s, char c)
