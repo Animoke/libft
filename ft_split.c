@@ -24,7 +24,6 @@ static size_t	ft_split_counter(char const *s, char c)
 		if (s[i] == c)
 		{
 			i++;
-//			continue ;
 		}
 		spl++;
 		while (s[i] && s[i] != c)
