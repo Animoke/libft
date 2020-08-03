@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gpatingr <gpatingr@sudent.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 18:51:27 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/22 16:24:54 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/08/02 18:41:34 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,29 @@ static size_t	ft_split_counter(char const *s, char c)
 	return (splits);
 }
 
-static void		*ft_free_strings(char **strings)
+static void		*ft_free_strings(char **strs)
 {
-	if (strings == NULL)
+	if (strs == NULL)
 		return (NULL);
-	while (*strings != NULL)
-		free(*strings++);
-	free(strings);
+	while (*strs)
+		free(*strs++);
+	free(strs);
 	return (NULL);
 }
 
 char			**ft_split(char const *s, char c)
 {
 	char	**strs;
-	size_t	a;
+	size_t	h;
 	size_t	i;
 	size_t	j;
 
 	if (s == NULL)
 		return (NULL);
-	a = ft_split_counter(s, c);
-	if ((strs = (char**)malloc(sizeof(char*) * (a + 1))) == NULL)
+	h = ft_split_counter(s, c);
+	if (!(strs = (char**)malloc(sizeof(char*) * (h + 1))))
 		return (NULL);
-	a = 0;
+	h = 0;
 	j = -1;
 	while (s[++j])
 	{
@@ -64,10 +64,10 @@ char			**ft_split(char const *s, char c)
 		i = 0;
 		while (s[j + i] && s[j + i] != c)
 			i++;
-		if ((strs[a++] = ft_substr(s, j, i)) == NULL)
+		if ((strs[h++] = ft_substr(s, j, i)) == NULL)
 			return (ft_free_strings(strs));
 		j += i - 1;
 	}
-	strs[a] = NULL;
+	strs[h] = NULL;
 	return (strs);
 }
