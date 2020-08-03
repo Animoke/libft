@@ -22,24 +22,19 @@ static size_t	ft_split_counter(char const *s, char c)
 	while (s[i])
 	{
 		if (s[i] == c)
-		{
 			i++;
-		}
-		spl++;
 		while (s[i] && s[i] != c)
 			i++;
+		spl++;
 	}
 	return (spl);
 }
 
 static void		*ft_free_strings(char **strs)
 {
-	if (strs == NULL)
-		return (NULL);
 	while (*strs)
 		free(*strs++);
 	free(strs);
-	return (NULL);
 }
 
 char			**ft_split(char const *s, char c)
