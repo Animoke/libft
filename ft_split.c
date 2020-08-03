@@ -52,8 +52,8 @@ char			**ft_split(char const *s, char c)
 	j = -1;
 	while (s[++j])
 	{
-//		if (s[j] == c)
-//			continue ;
+		if (s[j] == c)
+			continue ;
 		i = 0;
 		while (s[j + i] && s[j + i] != c)
 			i++;
