@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@sudent.42.fr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 18:51:27 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/08/02 18:41:34 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/08/03 19:01:20 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 static size_t	ft_split_counter(char const *s, char c)
 {
-	size_t	splits;
+	size_t	spl;
 	int		i;
 
-	splits = 0;
+	spl = 0;
 	i = 0;
 	while (s[i])
 	{
@@ -26,11 +26,11 @@ static size_t	ft_split_counter(char const *s, char c)
 			i++;
 			continue ;
 		}
-		splits++;
+		spl++;
 		while (s[i] && s[i] != c)
 			i++;
 	}
-	return (splits);
+	return (spl);
 }
 
 static void		*ft_free_strings(char **strs)
