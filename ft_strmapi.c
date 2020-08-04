@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 17:31:22 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/05/26 22:50:32 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/08/04 15:53:48 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ptr;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	if (!(ptr = malloc(sizeof(char) * ft_strlen(s) + 1)))
 		return (NULL);
 	while (*s)

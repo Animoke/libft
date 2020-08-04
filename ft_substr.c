@@ -6,7 +6,7 @@
 /*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 21:42:02 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/07/23 15:26:15 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/08/04 15:55:34 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*res;
 
 	i = 0;
+	if (start >= ft_strlen(s))
+		return (NULL);
 	if (!(res = malloc(sizeof(char) * len + 1)))
 		return (NULL);
 	while (s[start] != '\0' && i < len)
