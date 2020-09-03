@@ -3,66 +3,104 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gpatingr <gpatingr@sudent.42.fr>           +#+  +:+       +#+        */
+/*   By: gpatingr <gpatingr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/06 18:51:27 by gpatingr          #+#    #+#             */
-/*   Updated: 2020/08/03 18:35:06 by gpatingr         ###   ########.fr       */
+/*   Updated: 2020/09/03 20:36:52 by gpatingr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_split_counter(char const *s, char c)
+static void		ft_free_split(char **str, int i)
 {
-	size_t	spl;
-	int		i;
+	if (str != 0)
+	{
+		while (i >= 0)
+			free(str[i--]);
+		free(str);
+	}
+	str = 0;
+}
 
-	spl = 0;
+static char		*ft_strdup_local(char *dest, const char *str, int len)
+{
+	int i;
+
 	i = 0;
-	while (s[i])
+	if (str != 0)
 	{
-		if (s[i] == c)
+		if (!(dest = malloc(sizeof(char) * (len + 1))))
+			return (NULL);
+		while (i < len)
+		{
+			dest[i] = str[i];
 			i++;
-		while (s[i] && s[i] != c)
-			i++;
-		spl++;
+		}
 	}
-	return (spl);
+	dest[i] = 0;
+	return (dest);
 }
 
-static void		*ft_free_strings(char **strs)
+static int		ft_words_count(const char *s, char c)
 {
-	while (*strs)
-		free(*strs++);
-	free(strs);
-	return (NULL);
+	int i;
+	int nb_w;
+
+	i = 0;
+	nb_w = 0;
+	if (s != 0)
+	{
+		while (s[i])
+		{
+			while (s[i] == c)
+				i++;
+			if (s[i] && s[i] != c)
+				nb_w++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+	}
+	return (nb_w);
 }
 
-char			**ft_split(char const *s, char c)
+static void		split_loop(const char *str, char c, int *i, int *len)
 {
-	char	**strs;
-	size_t	h;
-	size_t	i;
-	size_t	j;
-
-	if (!s || !c)
-		return (NULL);
-	h = ft_split_counter(s, c);
-	if (!(strs = (char**)malloc(sizeof(char*) * (h + 1))))
-		return (NULL);
-	h = 0;
-	j = -1;
-	while (s[++j])
+	if (str != 0)
 	{
-		if (s[j] == c)
-			continue ;
-		i = 0;
-		while (s[j + i] && s[j + i] != c)
-			i++;
-		if (!(strs[h++] = ft_substr(s, j, i)))
-			return (ft_free_strings(strs));
-		j += i - 1;
+		while (str[*i] != c && str[*i])
+		{
+			(*len)++;
+			(*i)++;
+		}
 	}
-	strs[h] = NULL;
-	return (strs);
+}
+
+char			**ft_split(char const *str, char c)
+{
+	int		len;
+	int		i;
+	int		a;
+	char	**res;
+
+	a = 0;
+	i = 0;
+	if (!(res = malloc(sizeof(char*) * (ft_words_count(str, c) + 1))))
+		return (NULL);
+	while (a < ft_words_count(str, c) && !(len = 0))
+	{
+		split_loop(str, c, &i, &len);
+		if (len > 0)
+		{
+			if (!(res[a] = ft_strdup_local(res[a], &str[i - len], len)))
+			{
+				ft_free_split(res, a);
+				return (0);
+			}
+			a++;
+		}
+		i++;
+	}
+	res[a] = 0;
+	return (res);
 }
